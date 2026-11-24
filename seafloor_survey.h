@@ -11,13 +11,14 @@
 class SeafloorSurvey
 {
 public:
-  void recordDebris(Location location);
-  int getSignalStrength(Location location) const;
+  explicit SeafloorSurvey(int robotcount); 
+  void recordDebris(Location location); 
 
   // bool hasDebris() const; // EXAMPLE
+  int getSignalStrength(Location location) const; 
 
 private:
-  std::vector<Location> debrisLocations; // TOY APPROACH
-
-  // int discoveriesRecorded = 0; // EXAMPLE
+  int countInRange(int robot, int lo, int hi) const; 
+  int robotcount; 
+  std::vector<std::vector<int>> debrisbyrobot; 
 };
